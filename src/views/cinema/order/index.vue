@@ -35,7 +35,12 @@
       <el-table-column label="购买票数" align="center" prop="quality" />
       <el-table-column label="电影票id" align="center" prop="ticketNo" />
       <el-table-column label="用户id" align="center" prop="customerId" />
-      <el-table-column label="场次id" align="center" prop="scheduleId" />
+      <el-table-column label="电影名称" align="center" prop="movieName" />
+      <el-table-column label="放映时间" align="center" prop="showTime" width="180">
+        <template v-slot="scope">
+          <span>{{ parseTime(scope.row.showTime) }}</span>
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template v-slot="scope">
           <el-button size="mini" type="text" icon="el-icon-edit" @click="openForm(scope.row.id)"
@@ -140,4 +145,4 @@ export default {
     },
               }
 };
-</script>
+</script>
